@@ -1,0 +1,20 @@
+# Core runtime has no hard third-party deps — the engine, strategies, risk,
+# sizing, state (sqlite3 is stdlib) and the backtester all run on the standard
+# library alone. The packages below are for the live integrations.
+
+# Free data feeds (no account / no tax id):
+#   yfinance -> ETFs (SPY/QQQ/GLD/USO); pulls in pandas
+#   ccxt     -> BTC/USD from a public exchange (Kraken by default)
+yfinance>=0.2.40
+ccxt>=4.0.0
+
+# Telegram notifier (also used by any HTTP-based notifier you add).
+requests>=2.28.0
+
+# Optional alternative data feed + paper/live order execution (Alpaca).
+# Only needed for `--source alpaca` or live auto-execution; requires an account.
+# alpaca-py>=0.20.0
+
+# Optional: equity-curve plotting in the backtester. The backtest runs fine
+# without it (plot() just no-ops).
+matplotlib>=3.5.0
